@@ -1,4 +1,5 @@
 
+
 # The first function, makeCacheMatrix creates a special "matrix", which is really a list containing a function to
 #
 #  solve(A) return inverse of A
@@ -8,8 +9,27 @@
 ## set the value of the inverse
 ## get the value of the invers
 makeCacheMatrix <- function(x = matrix()) {
-         #TBD check if matrix is square, otherwise return failure
-
+         # check if matrix is square, otherwise return failure
+        dm <-dim(x)
+  
+        if(length(dm) != 2)
+        {
+          print("Warning: matrix needs to be 2 dimensions (return NA)")
+          return(NA)
+        }
+  
+        if(dm[1] != dm[2])
+        {
+          print("Warning: matrix is square (return NA) ")
+          return(NA)
+        }
+  
+        # matrix is same as original
+        #if(identical(m,m))
+        #{
+        #  print("matrix is identical to cached")
+        #}
+  
          m <- NULL
          set <- function(y) {
                  x <<- y
